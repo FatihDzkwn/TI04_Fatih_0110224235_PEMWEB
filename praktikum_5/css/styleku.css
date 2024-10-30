@@ -1,0 +1,52 @@
+body {
+    background-color: rgba(245,245,221,255);
+    margin: -15px 5px;
+}
+#header {
+    background-color: rgba(222,184,135,255);
+}
+#header h1 {
+    text-align: center;
+    color: blue;
+    padding-top: 20px;
+}
+#header blockquote {
+    background-color: rgba(254,215,0,255);
+    text-align: center;
+    padding: 3px 60px;
+    display: inline-block;
+    border: 1px dashed black;
+    margin-top: -5px;
+    margin-left: 310px;   
+}
+.nav {
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+div ul {
+    display: flex;
+}
+div ul li {
+    list-style: none;
+    padding: 0px 5px;
+}
+.gambar {
+    width: fit-content;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.jawa{
+    color: blue;
+    font-size: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 0.5;
+}
+#besar {
+    width: 340px;
+}
+#kecil {
+    width: 340px;
+}
