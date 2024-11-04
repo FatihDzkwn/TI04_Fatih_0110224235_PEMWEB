@@ -1,0 +1,40 @@
+.box1 {
+    background-color: aquamarine;
+    width: auto;
+    height: 140px;
+    margin: 15px 10px;
+    border: 2px solid black;
+}
+#container1 {
+    margin: 30px 10px;
+    display: flex;
+    justify-content: space-between;
+    height: 220px;
+}
+.box2 {
+    background-color: yellow;
+    width: 15%;
+    border: 2px solid black;
+   
+}
+.box3 {
+    background-color: coral;
+    width: 82%;
+    border: 2px solid black;
+}
+#container2 {
+    margin: 0px 10px;
+    display: flex;
+    justify-content: space-between;
+    height: 190px;
+}
+.box4 {
+    background-color: yellow;
+    width: 15%;
+    border: 2px solid black;   
+}
+.box5 {
+    background-color: deepskyblue;
+    width: 82%;
+    border: 2px solid black;
+}

@@ -1,0 +1,44 @@
+#container1 {
+    display: flex;
+    margin: 15px 10px;
+    justify-content: space-between;
+    height: 73px;
+}
+.box1 {
+    background-color: yellow;
+    width: 15%;
+    border: 2px solid black;
+}
+.box2 {
+    background-color: coral;
+    width: 83%;
+    border: 2px solid black;
+}
+#container2 {
+    margin: 0px 10px;
+    display: flex;
+    justify-content: space-between;
+    height: 440px;
+}
+.box3 {
+    background-color: cadetblue;
+    width: 15%;
+    border: 2px solid black;
+}
+.box4 {
+    background-color: lightsteelblue;
+    width: 66%;
+    border: 2px solid black;
+}
+.box5 {
+    background-color: darksalmon;
+    width: 15%;
+    border: 2px solid black;
+}
+#box6 {
+    background-color: darkgoldenrod;
+    margin: 15px 10px;
+    width: auto;
+    height: 73px;
+    border: 2px solid black;
+}
