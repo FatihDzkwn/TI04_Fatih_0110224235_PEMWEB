@@ -1,0 +1,155 @@
+:root {
+    --primary-color: #2196F3;
+    --secondary-color: #1976D2;
+    --text-color: #333;
+    --background-color: #f4f7f6;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+.TiketContainer {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    width: 500px;
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
+    animation: slideIn 0.7s ease-out;
+}
+
+.TiketHeader {
+    text-align: center;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.TiketHeader h1 {
+    color: var(--primary-color);
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.TiketHeader p {
+    color: #6c757d;
+}
+
+.GrupForm {
+    margin-bottom: 20px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.GrupForm label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.GrupForm:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.ControlForm {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-size: 16px;
+}
+
+.ControlForm.error {
+    animation: errorShake 0.5s ease-in-out;
+}
+
+.ControlForm:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.1);
+}
+
+.PesanError {
+    color: #d32f2f;
+    font-size: 14px;
+    margin-top: 5px;
+    display: none;
+}
+
+.FormSubmit {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.FormSubmit:hover {
+    background-color: var(--secondary-color);
+    transform: scale(1.02);
+    box-shadow: 0 5px 15px rgba(33,150,243,0.3);
+}
+
+.ticket-result {
+    margin-top: 20px;
+    background-color: #f0f4f8;
+    border-radius: 10px;
+    padding: 20px;
+    display: none;
+    animation: slideIn 0.5s ease-out;
+}
+
+.ticket-result h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.ControlForm.error {
+    border-color: #d32f2f;
+}
+
+@media (max-width: 600px) {
+    .TiketContainer {
+        width: 95%;
+        margin: 20px;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes errorShake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}

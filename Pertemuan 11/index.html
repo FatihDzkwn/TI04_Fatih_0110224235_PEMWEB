@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validasi</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <div class="TiketContainer">
+        <div class="TiketHeader">
+            <h1><i class="fas fa-plane"></i> Pemesanan Tiket</h1>
+            <p>Lengkapi data perjalanan Anda</p>
+        </div>
+
+        <form id="ticketForm">
+            <div class="GrupForm">
+                <label for="nama">Nama Pelanggan</label>
+                <input type="text" id="nama" class="ControlForm" placeholder="Masukkan nama lengkap">
+                <div id="namaError" class="PesanError">Nama harus diisi</div>
+            </div>
+
+            <div class="GrupForm">
+                <label for="email">Email</label>
+                <input type="email" id="email" class="ControlForm" placeholder="Masukkan alamat email">
+                <div id="emailError" class="PesanError">Email tidak valid</div>
+            </div>
+
+            <div class="GrupForm">
+                <label for="jamKeberangkatan">Jam Keberangkatan</label>
+                <input type="text" id="jamKeberangkatan" class="ControlForm" placeholder="00.00 - 23.59">
+                <div id="jamError" class="PesanError">Format jam tidak valid</div>
+            </div>
+
+            <div class="GrupForm">
+                <label for="tujuan">Tujuan Keberangkatan</label>
+                <input type="text" id="tujuan" class="ControlForm" placeholder="Kota atau negara tujuan">
+                <div id="tujuanError" class="PesanError">Tujuan harus diisi</div>
+            </div>
+
+            <div class="GrupForm">
+                <label for="jumlahTiket">Jumlah Tiket</label>
+                <input type="number" id="jumlahTiket" class="ControlForm" placeholder="1-10 tiket" min="1" max="10">
+                <div id="jumlahTiketError" class="PesanError">Jumlah tiket tidak valid</div>
+            </div>
+
+            <button type="submit" class="FormSubmit">
+                <i class="fas fa-ticket-alt"></i> Pesan Tiket
+            </button>
+        </form>
+
+        <div id="ticketResult" class="ticket-result">
+            <h3>Detail Pemesanan</h3>
+            <div id="resultContent"></div>
+        </div>
+    </div>
+</body>
+</html>
