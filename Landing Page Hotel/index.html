@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>JW: Jawir Hotel</title>
+    <link href="css/bootstrap.css" rel="stylesheet" crossorigin="anonymous" />
+    <style>
+      html {
+  scroll-behavior: smooth;
+}
+
+      .card {
+          width: 100%;
+          border-radius: 10px;
+        }
+        
+        .card img {
+            border-radius: 10px 10px 0 0;
+            object-fit: cover;
+        }
+
+        i.fa-star {
+            color: orangered;
+        }
+
+        .btn-group i {
+            color: orangered;
+        }
+
+        .btn-group button:hover {
+            background-color: orange;
+        }
+
+        .btn-group button:hover i.fa-solid {
+            color: black;
+        }
+
+        .card-body h2 {
+            font-size: 1.2em;
+            text-transform: capitalize;
+        }
+
+        /* Indicators */
+        .owl-theme .owl-dots .owl-dot.active span, 
+        .owl-theme .owl-dots .owl-dot:hover span {
+            background: orange;
+            width: 30px;
+        }
+
+        .owl-theme .owl-dots .owl-dot span {
+        width: 15px;
+        height: 15px;
+        background: orangered;
+        transition: all .2s ease;
+    }
+
+    /* Controls */
+    /* button element */
+    .owl-carousel .owl-nav button.owl-next, 
+    .owl-carousel .owl-nav button.owl-prev {
+        position: relative;
+        background-color: rgba(255, 166, 0, 0.3);
+        width: 30px;
+        padding: 5px;
+    }
+
+    .owl-carousel .owl-nav button.owl-next:hover, 
+    .owl-carousel .owl-nav button.owl-prev:hover {
+        background-color: orange;
+    }
+
+    .owl-carousel .owl-nav button.owl-next::before, 
+    .owl-carousel .owl-nav button.owl-prev::before {
+        width: 100%;
+        height: 100%;
+        color: orangered;
+        /* inset: 0;
+        position: absolute; */
+    }
+
+    .owl-carousel .owl-nav button.owl-next::before {
+        content:'\f061'; /*unicode for arrow-right*/
+        font-family: 'Font Awesome 5 Free'; /* Font family for Font Awesome */
+        font-weight: 900; /* Font weight for the solid style (fas) */
+        margin-right: 5px; 
+    }
+
+    .owl-carousel .owl-nav button.owl-prev::before {
+        content:'\f060'; /*unicode for arrow-left*/
+        font-family: 'Font Awesome 5 Free'; /* Font family for Font Awesome */
+        font-weight: 900; /* Font weight for the solid style (fas) */
+        margin-right: 5px; 
+    }
+
+.owl-carousel .owl-nav .owl-next [aria-label="Next"], 
+.owl-carousel .owl-nav .owl-prev [aria-label="Previous"]{
+    visibility:hidden /*The Span element*/
+}
+
+/* 3D Spinner */
+        .owl-carousel .item {
+        text-align: center;
+        padding: 50px;
+      margin-bottom:10px;
+        opacity: .2;
+        -webkit-transform: scale3d(0.8, 0.8, 1);
+        transform: scale3d(0.8, 0.8, 1);
+        -webkit-transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+    }
+    .owl-carousel .owl-item.active.center .item {
+        opacity: 1;
+        -webkit-transform: scale3d(1.0, 1.0, 1);
+        transform: scale3d(1.0, 1.0, 1);
+}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .logos-slide {
+            white-space: nowrap;
+            animation: 20s slide infinite linear;
+        }
+
+        .logos:hover .logos-slide {
+            animation-play-state: paused;
+        }
+
+        .logos-slide img {
+            height: 60px;
+            margin: 0 50px;
+        }
+
+    .card {
+       white-space: wrap;
+       min-width: 400px;
+       margin: 0 10px;
+     }
+
+    @keyframes slide {
+         from{
+             transform: translateX(0);
+         }
+
+       to {
+           transform: translateX(-100%);
+      }
+ }
+      .navbar {
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .navbar.scrolled {
+        background-color: black; /* Warna baru saat di-scroll */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Background image styling */
+      .gambar {
+        position: relative;
+        background-image: url("img/valeriia-bugaiova-_pPHgeHz1uk-unsplash.png");
+        background-size: cover;
+        background-position: center;
+        height: 110vh;
+      }
+
+      .gambar::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* Overlay transparan */
+        z-index: 1;
+      }
+
+      .gambar img {
+        position: relative;
+        z-index: 2;
+        display: block;
+        margin: 0 auto;
+        max-width: 80%; /* Responsif gambar */
+        height: auto;
+      }
+
+      .btn-hover:hover {
+        background-color: #dbc12c;
+        color: white;
+        transform: scale(1.1);
+        transition: all 0.3s ease;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .logos::before,
+      .logos::after {
+        content: "";
+        width: 300px;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        z-index: 2;
+      }
+
+      .logos::before {
+        left: 0;
+        background: linear-gradient(to left, rgba(255, 255, 255, 0), #fff);
+      }
+
+      .logos::after {
+        right: 0;
+        background: linear-gradient(to right, rgba(255, 255, 255, 0), #fff);
+      }
+
+      .logos-slide {
+        animation: 20s slide infinite linear;
+      }
+
+      .logos:hover .logos-slide {
+        animation-play-state: paused;
+      }
+
+      .logos-slide img {
+        height: 60px;
+        margin: 0 50px;
+      }
+
+      @keyframes slide {
+        from {
+          transform: translateX(0);
+        }
+
+        to {
+          transform: translateX(-100%);
+        }
+      }
+
+      /* Responsiveness adjustments */
+      @media (max-width: 576px) {
+        .navbar-brand {
+          font-size: 1.2rem; /* Perkecil font di navbar */
+        }
+
+        .gambar img {
+          max-width: 90%; /* Gambar lebih besar di layar kecil */
+        }
+
+        .offcanvas-header h5 {
+          font-size: 1.1rem; /* Ukuran font header offcanvas */
+        }
+
+        .oke {
+          padding-right: 70px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div> <!-- JavaScript -->
+      <script>
+
+        // Fungsi untuk menangani perubahan scroll pada navbar
+        function handleScroll() {
+          const navbar = document.querySelector(".navbar"); // Pilih elemen navbar
+
+          if (window.scrollY > 50) {
+            // Jika scroll lebih dari 50px
+            navbar.classList.add("scrolled"); // Tambahkan kelas untuk navbar
+          } else {
+            navbar.classList.remove("scrolled"); // Hapus kelas saat scroll kembali ke atas
+          }
+        }
+
+        // Periksa posisi scroll saat halaman pertama kali dimuat
+        document.addEventListener("DOMContentLoaded", handleScroll);
+
+        // Tambahkan event listener untuk scroll
+        window.addEventListener("scroll", handleScroll);
+      </script>
+
+      <script>
+        const cloneEl = document.querySelector(".logos-slide").cloneNode(true)
+        document.querySelector('.logos').appendChild(cloneEl);
+      </script>
+
+      <script src="js/popper.min.js" crossorigin="anonymous"></script>
+      <script src="js/bootstrap.js" crossorigin="anonymous"></script>
+    </div>
+
+    <div class="container-fluid bg-dark bg-gradient"><!--Container-->
+
+      <div class="row gambar "><!--Row 1-->
+        <div class="col-md-12">
+          <!--Column 1-->
+          <nav class="navbar navbar-dark fixed-top scrolled">
+            <!--Navbar-->
+            <div class="container-fluid">
+              <!-- Tombol untuk toggle Offcanvas (Pindah ke kanan dengan ms-auto) -->
+              <button
+                class="navbar-toggler ms-auto"
+                type="button"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasDarkNavbar"
+                aria-controls="offcanvasDarkNavbar"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+
+              <!-- Offcanvas Menu -->
+              <div
+                class="offcanvas offcanvas-end text-bg-dark"
+                tabindex="-1"
+                id="offcanvasDarkNavbar"
+                aria-labelledby="offcanvasDarkNavbarLabel"
+              >
+                <div class="offcanvas-header">
+                  <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">
+                    Menu Jawir Hotel
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn-close btn-close-white"
+                    data-bs-dismiss="offcanvas"
+                  ></button>
+                </div>
+                <div class="offcanvas-body">
+                  <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 breadcrumb">
+                    <li class="nav-item breadcrumb-item">
+                      <a class="nav-link active" href="#">Utama</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active" href="#tentang-hotel">Tentang</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active" href="#ulasan">Ulasan</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active" href="#akomodasi">Akomodasi</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active" href="#cabang">Cabang</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active" href="#hardis">Promo</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active" href="#dukungan">Dukungan</a>
+                    </li>
+                  </ul>
+                  <form class="d-flex mt-3" role="search">
+                    <input
+                      class="form-control me-2"
+                      type="search"
+                      placeholder="Cari"
+                    />
+                    <button class="btn btn-success" type="submit">
+                      Cari
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </nav>
+          <div>
+            <!--Gambar Logo-->
+            <img
+              src="img/jawir-removebg-preview.png"
+              alt="Sample Image"
+              class="img-fluid"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="row btn-hover breadcrumb-item active" id="tentang-hotel"><!--Row 2--> <!--Tentang Hotel-->
+        <div class="col-md 12">
+          <h1 class="text-white pt-2 py-1 text-center" >Tentang Hotel</h1>
+        </div>
+      </div>
+
+      <div class="row bg-dark pb-5"><!--Row 3-->
+        <div class="col-md-6 oke">
+          <!--Description-->
+          <h2 class="text-white mx-5 pt-5 font-italic">Jawir Hotel</h2>
+          <blockquote class="blockquote ps-5 py-4 text-white">
+            <p class="mb-0">
+              Temukan kemewahan di hotel bintang 5 kami di Jakarta. Berdekatan
+              dengan mal Grand Indonesia, menawarkan lokasi strategis, dekat
+              kantor, atraksi, kedutaan, dan CBD. Manjakan diri dengan fasilitas
+              terkini, layanan luar biasa, dan pilihan enam restoran yang
+              mengesankan. Pengalaman menginap yang tak terlupakan menanti anda
+              di Jakarta yang semarak.
+            </p>
+            <br />
+            <footer class="blockquote-footer text-white">
+              Jawir Hotel <cite>Owner's</cite>
+            </footer>
+          </blockquote>
+        </div>
+        <div class="col-md-6 pt-5 px-5">
+          <!--Maps-->
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.3237315612896!2d115.20655807422152!3d-8.660729688126724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd241071ad8966d%3A0xa77ed66c4a86d388!2sPuri%20agung%20lingsir%20bedauh!5e0!3m2!1sid!2sid!4v1735131416569!5m2!1sid!2sid"
+            width="550"
+            height="300"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            class="oke"
+          ></iframe>
+        </div>
+      </div>
+
+      <div class="row btn-hover" id="ulasan"><!--Row 4--> <!--Apa Kata Mereka-->
+        <div class="col-md-12">
+          <h1 class="text-white pt-2 py-1 text-center">Apa Kata Mereka</h1>
+        </div>
+      </div>
+
+      <div class="row bg-dark pb-5">
+        <div class="col-md-12 py-5">
+          <main
+            class=" d-flex flex-row justify-content-center align-items-center"
+          >
+            <div class="logos overflow-hidden position-relative d-flex">
+              <div class="logos-slide d-flex" style="white-space: nowrap">
+                <section
+                  class="card c1 text-bg-warning py-2 px-2 rounded-3 d-flex justify-content-center align-items-center flex-column"
+                >
+                  <p class="text" role="paragraph" aria-label="testimonial">
+                    Awesome job you did there <em>@lambdatesting</em> with the
+                    LT Browser. It's doing a fantastic job at responsive testing
+                    🔥 see more >
+                  </p>
+                  <div class="d-flex mt-5">
+                    <span class="s1">
+                      <img
+                        src="https://user-images.githubusercontent.com/78242022/272654602-6b6c4303-587d-48ae-957a-3b88496f1fcc.png"
+                        alt=""
+                      />
+                    </span>
+                    <span class="s2">
+                      <h4 role="heading" aria-label="4">Mbaziira Ronald</h4>
+                      <p class="at">@MbaziiraRonn</p>
+                    </span>
+                  </div>
+                </section>
+
+                <!-- Card Two -->
+                <section
+                  class="card c1 text-bg-warning py-2 px-2 rounded-3 d-flex justify-content-center align-items-center flex-column"
+                >
+                  <p class="text" role="paragraph" aria-label="testimonial">
+                    Amazing Test software. I am very satisfied, I think it is
+                    excellent software and as the years go by it continues to
+                    offer the best service I have ever tried....see more >
+                  </p>
+                  <div class="d-flex mt-5">
+                    <span class="s1">
+                      <img
+                        src="https://user-images.githubusercontent.com/78242022/272654585-d0774fd3-5d90-42f0-bc53-7141f7735825.png"
+                        alt=""
+                      />
+                    </span>
+                    <span class="s2">
+                      <h4 role="heading" aria-label="4">Elias M.</h4>
+                    </span>
+                  </div>
+                </section>
+
+                <!-- Card Three -->
+                <section
+                  class="card c1 text-bg-warning py-2 px-2 rounded-3 d-flex justify-content-center align-items-center flex-column"
+                >
+                  <p class="text" role="paragraph" aria-label="testimonial">
+                    Anyone who needs to test their code on different platforms
+                    try <em>@lambdatesting</em> Great service from this company!
+                  </p>
+                  <div class="d-flex mt-5">
+                    <span class="s1">
+                      <img
+                        src="https://user-images.githubusercontent.com/78242022/266013776-40ac50f1-31f8-4250-acb2-05f16d683baa.png"
+                        alt=""
+                      />
+                    </span>
+                    <span class="s2">
+                      <h4 role="heading" aria-label="4">Stephan Smuts</h4>
+                      <p class="at">spsmuts</p>
+                    </span>
+                  </div>
+                </section>
+
+                <!-- Card Four -->
+                <section
+                  class="card c1 text-bg-warning py-2 px-2 rounded-3 d-flex justify-content-center align-items-center flex-column"
+                >
+                  <p class="text" role="paragraph" aria-label="testimonial">
+                    See how <em>@lambdatesting</em> is #Futureready to enable
+                    blazing-fast test orchestration seamlessly integrated with
+                    organizations' existing CI/CD platforms, using #Microsoft
+                    Azure.
+                  </p>
+                  <div class="d-flex mt-5">
+                    <span class="s1">
+                      <img
+                        src="https://user-images.githubusercontent.com/78242022/272654608-d291d9df-439c-4a79-83b1-2f2d71cd25b5.png"
+                        alt=""
+                      />
+                    </span>
+                    <span class="s2">
+                      <h4 role="heading" aria-label="4">Microsoft India</h4>
+                      <p class="at">@MicrosoftIndia</p>
+                    </span>
+                  </div>
+                </section>
+
+                <!-- Card Five -->
+                <section
+                  class="card c1 text-bg-warning py-2 px-2 rounded-3 d-flex justify-content-center align-items-center flex-column"
+                >
+                  <p class="text" role="paragraph" aria-label="testimonial">
+                    Amazing Experience. That reduces a large amount of cost as
+                    well as manhours which can be used for other better things.
+                    In our team we have integrated lambdatest with our
+                    automation CI/CD pipeline, this shows how we trust
+                    <em>@lambdatesting</em>...see more >.
+                  </p>
+                  <div class="d-flex mt-5">
+                    <span class="s1">
+                      <img
+                        src="https://user-images.githubusercontent.com/78242022/272654585-d0774fd3-5d90-42f0-bc53-7141f7735825.png"
+                        alt=""
+                      />
+                    </span>
+                    <span class="s2">
+                      <h4 role="heading" aria-label="4">Padma kumar M.</h4>
+                    </span>
+                  </div>
+                </section>
+
+                <!-- Card Six -->
+                <section
+                  class="card c1 text-bg-warning py-2 px-2 rounded-3 d-flex justify-content-center align-items-center flex-column"
+                >
+                  <p class="text" role="paragraph" aria-label="testimonial">
+                    <em>@lambdatesting</em> Efficient and User-Friendly
+                    Cross-Browser Testing with LambdaTest...see more >
+                  </p>
+                  <div class="d-flex mt-5">
+                    <span class="s1">
+                      <img
+                        src="https://user-images.githubusercontent.com/78242022/266013732-785b0223-9774-4918-964f-ce75f11138f2.png"
+                        alt=""
+                      />
+                    </span>
+                    <span class="s2">
+                      <h4 role="heading" aria-label="4">Ravi Kanth G.</h4>
+                    </span>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </main>
+          <script
+            src=""
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"
+          ></script>
+          <script
+            src=""
+            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+            crossorigin="anonymous"
+          ></script>
+        </div>
+      </div>
+
+      <div class="row btn-hover" id="akomodasi"><!--Row 5--> <!--Akomodasi-->
+        <div class="col-md-12">
+          <h1 class="text-white pt-2 py-1 text-center">Akomodasi</h1>
+        </div>
+      </div>
+
+      <div class="row pb-5 bg-dark"> <!--Row 6--> <!--Kamar 1-->
+        <div class="col-md-7 pt-5">
+          <div id="carouselExampleIndicators" class="carousel slide">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="img/deluxe1.png" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="img/deluxe2.png" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="img/deluxe3.png" class="d-block w-100" alt="...">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="col-md-5 pt-5">
+          <div class="row">
+            <div class="col-md-12 pb-3">
+              <h2 class="text-white text-center font-italic bg-secondary bg-gradient ">Kamar Deluxe</h2>
+        
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <blockquote class="blockquote">
+                <p class="mb-0 text-white">
+                  Keanggunan modern yang berpadu dengan nuansa budaya Indonesia dapat ditemukan pada kamar ini. Lepaskan penat sambil Anda meninggalkan hiruk-pikuk kota dalam kenyamanan akomodasi kami yang dirancang dengan sempurna.
+                </p>
+              </blockquote>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-9">
+              <h4 class="text-white font-weight-bold">Fasilitas Hotel :</h4>
+            </div>
+            
+            <div class="col-md-3">
+              <img src="img/icons8-best-seller-100.png" width="70px" alt="" class="translate-middle position-absolute">
+            </div>
+          </div>
+          <div class="row bg-success bg-gradient">
+            <div class="col-md-6">
+              <p>
+                <ul class="text-white">
+                  <li class="list-item">
+                    AC
+                  </li>
+                  <li class="list-item">
+                    Tersedia kamar yang terhubung
+                  </li>
+                  <li class="list-item">
+                    Fasilitas pembuat kopi dan/atau teh
+                  </li>
+                  <li class="list-item">
+                    Tersedia kamar yang terhubung
+                  </li>
+                  <li class="list-item">
+                    Meja
+                  </li>
+                </ul>
+              </p>
+            </div>
+            <div class="col-md-6">
+              <p>
+                <ul class="text-white">        
+                  <li class="list-item">
+                    Tempat tidur bayi diperbolehkan
+                  </li>
+                  <li class="list-item">
+                    Minibar
+                  </li>
+                  <li class="list-item">
+                    Brankas
+                  </li>
+                  <li class="list-item">
+                    Bak berendam
+                  </li>
+                  <li class="list-item">
+                    Ruang Merokok
+                  </li>
+                </ul>
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-5 pt-4">
+              <button type="button" class="btn btn-outline-warning btn-lg" data-bs-toggle="modal" data-bs-target="#myModal">Pesan Sekarang</button>
+            </div>
+            <div class="col-md-7 pt-3">
+              <h5 class="text-white font-weight-bold">Rp 2.534.400,00 / Malam</h5>
+              <p class="text-white font-weight-bold">*Belum termasuk pajak, Fee, dan lainnya</p>
+            </div>
+          </div>                               
+        </div>
+      </div>
+
+      <hr class="text-white">
+      
+      <div class="row pb-5 bg-dark"> <!--Row 7--> <!--Kamar 2-->
+        <div class="col-md-7 pt-5">
+          <div id="carouselExampleIndicators2" class="carousel slide">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="img/gd1.png" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="img/gd2.png" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="img/gd3.png" class="d-block w-100" alt="...">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="col-md-5 pt-5">
+          <div class="row">
+            <div class="col-md-12 pb-3">
+              <h2 class="text-white text-center font-italic bg-secondary bg-gradient ">Kamar Grand Deluxe</h2>
+        
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <blockquote class="blockquote">
+                <p class="mb-0 text-white">
+                  Segala yang Anda inginkan atau perlukan, tersedia dalam ruang yang bernuansa Indonesia di kamar Grand Deluxe kami, menawarkan segala yang Anda butuhkan bagi pengalaman menginap yang mewah.
+                </p>
+              </blockquote>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <h4 class="text-white font-weight-bold">Fasilitas Hotel :</h4>
+            </div>
+          </div>
+          <div class="row bg-success bg-gradient">
+            <div class="col-md-6">
+              <p>
+                <ul class="text-white">
+                  <li class="list-item">
+                    Kamar yang mudah diakses
+                  </li>
+                  <li class="list-item">
+                    Tempat tidur bayi diperbolehkan
+                  </li>
+                  <li class="list-item">
+                    Fasilitas pembuat kopi dan/atau teh
+                  </li>
+                  <li class="list-item">
+                    Tersedia kamar yang terhubung
+                  </li>
+                  <li class="list-item">
+                    Meja
+                  </li>
+                </ul>
+              </p>
+            </div>
+            <div class="col-md-6">
+              <p>
+                <ul class="text-white">        
+                  <li class="list-item">
+                    Tempat tidur tambahan diperbolehkan
+                  </li>
+                  <li class="list-item">
+                    Minibar
+                  </li>
+                  <li class="list-item">
+                    Brankas
+                  </li>
+                  <li class="list-item">
+                    Bak berendam
+                  </li>
+                  <li class="list-item">
+                    shower
+                  </li>
+                </ul>
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-5 pt-4">
+              <button type="button" class="btn btn-outline-warning btn-lg" data-bs-toggle="modal" data-bs-target="#myModal">Pesan Sekarang</button>
+            </div>
+            <div class="col-md-7 pt-3">
+              <h5 class="text-white font-weight-bold">Rp 2.890.800,00 / Malam</h5>
+              <p class="text-white font-weight-bold">*Belum termasuk pajak, Fee, dan lainnya</p>
+            </div>
+          </div>                               
+        </div>
+      </div>
+
+      <hr class="text-white">
+
+      <div class="row pb-5 bg-dark"> <!--Row 8--> <!--Kamar 3-->
+        <div class="col-md-7 pt-5">
+          <div id="carouselExampleIndicators3" class="carousel slide">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="img/egd1.png" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="img/egd2.png" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="img/egd3.png" class="d-block w-100" alt="...">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="col-md-5 pt-5">
+          <div class="row">
+            <div class="col-md-12 pb-3">
+              <h2 class="text-white text-center font-italic bg-secondary bg-gradient ">Kamar Executive Grand Deluxe</h2>
+        
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <blockquote class="blockquote">
+                <p class="mb-0 text-white">
+                  Kamar Executive Grand Deluxe kami menawarkan pemandangan kota yang menakjubkan, menyediakan tempat peristirahatan mewah bagi para pelancong yang cerdas.
+                </p>
+              </blockquote>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <h4 class="text-white font-weight-bold">Fasilitas Hotel :</h4>
+            </div>
+          </div>
+          <div class="row bg-success bg-gradient">
+            <div class="col-md-6">
+              <p>
+                <ul class="text-white">
+                  <li class="list-item">
+                    Akses lounge eksekutif
+                  </li>
+                  <li class="list-item">
+                    Tempat tidur bayi diperbolehkan
+                  </li>
+                  <li class="list-item">
+                    Fasilitas pembuat kopi dan/atau teh
+                  </li>
+                  <li class="list-item">
+                    Kamar penghubung tersedia
+                  </li>
+                  <li class="list-item">
+                    Meja
+                  </li>
+                </ul>
+              </p>
+            </div>
+            <div class="col-md-6">
+              <p>
+                <ul class="text-white">        
+                  <li class="list-item">
+                    Tempat tidur tambahan diperbolehkan
+                  </li>
+                  <li class="list-item">
+                    Minibar
+                  </li>
+                  <li class="list-item">
+                    Brankas
+                  </li>
+                  <li class="list-item">
+                    Bak berendam
+                  </li>
+                  <li class="list-item">
+                    Kamar tidur terpisah
+                  </li>
+                </ul>
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-5 pt-4">
+              <button type="button" class="btn btn-outline-warning btn-lg" data-bs-toggle="modal" data-bs-target="#myModal">Pesan Sekarang</button>
+            </div>
+            <div class="col-md-7 pt-3">
+              <h5 class="text-white font-weight-bold">Rp 3.484.800,00 / Malam</h5>
+              <p class="text-white font-weight-bold">*Belum termasuk pajak, Fee, dan lainnya</p>
+            </div>
+          </div>                               
+        </div>
+      </div>
+
+      <hr class="text-white">
+
+      <div class="row pb-5 bg-dark"> <!--Row 9--> <!--Kamar 4-->
+        <div class="col-md-7 pt-5">
+          <div id="carouselExampleIndicators4" class="carousel slide">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleIndicators4" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators4" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators4" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="img/egd1.png" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="img/egd2.png" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="img/egd3.png" class="d-block w-100" alt="...">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators4" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators4" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="col-md-5 pt-5">
+          <div class="row">
+            <div class="col-md-12 pb-3">
+              <h2 class="text-white text-center font-italic bg-secondary bg-gradient ">Kamar Diplomatic Suite</h2>
+        
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <blockquote class="blockquote">
+                <p class="mb-0 text-white">
+                  Suite kami yang luas menawarkan ruang tamu, ruang makan, dan kamar mandi terpisah, plus lemari pakaian. Sangat cocok untuk rapat atau acara kumpul keluarga/pribadi, sementara area kantor yang tenang juga tersedia.
+                </p>
+              </blockquote>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <h4 class="text-white font-weight-bold">Fasilitas Hotel :</h4>
+            </div>
+          </div>
+          <div class="row bg-success bg-gradient">
+            <div class="col-md-6">
+              <p>
+                <ul class="text-white">
+                  <li class="list-item">
+                    Akses lounge eksekutif
+                  </li>
+                  <li class="list-item">
+                    Tempat tidur bayi diperbolehkan
+                  </li>
+                  <li class="list-item">
+                    Lemari pakaian
+                  </li>
+                  <li class="list-item">
+                    Kamar penghubung tersedia
+                  </li>
+                  <li class="list-item">
+                    Meja
+                  </li>
+                </ul>
+              </p>
+            </div>
+            <div class="col-md-6">
+              <p>
+                <ul class="text-white">        
+                  <li class="list-item">
+                    Tempat tidur tambahan diperbolehkan
+                  </li>
+                  <li class="list-item">
+                    Minibar
+                  </li>
+                  <li class="list-item">
+                    Brankas
+                  </li>
+                  <li class="list-item">
+                    Bak berendam
+                  </li>
+                  <li class="list-item">
+                    Kamar tidur terpisah
+                  </li>
+                </ul>
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-5 pt-4">
+              <button type="button" class="btn btn-outline-warning btn-lg" data-bs-toggle="modal" data-bs-target="#myModal">Pesan Sekarang</button>
+            </div>
+            <div class="col-md-7 pt-3">
+              <h5 class="text-white font-weight-bold">Rp 12.532.500,00 / Malam</h5>
+              <p class="text-white font-weight-bold">*Belum termasuk pajak, Fee, dan lainnya</p>
+            </div>
+          </div>                               
+        </div>
+      </div>
+
+      <hr class="text-white">
+
+      <div class="row pb-5 bg-dark"> <!--Row 10--> <!--Kamar 5-->
+        <div class="col-md-7 pt-5">
+          <div id="carouselExampleIndicators5" class="carousel slide">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleIndicators5" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators5" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators5" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="img/egd1.png" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="img/egd2.png" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="img/egd3.png" class="d-block w-100" alt="...">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators5" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators5" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="col-md-5 pt-5">
+          <div class="row">
+            <div class="col-md-12 pb-3">
+              <h2 class="text-white text-center font-italic bg-secondary bg-gradient ">Kamar Presidential Suite</h2>
+        
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <blockquote class="blockquote">
+                <p class="mb-0 text-white">
+                  Kamar Executive Grand Deluxe kami menawarkan pemandangan kota yang menakjubkan, menyediakan tempat peristirahatan mewah bagi para pelancong yang cerdas.
+                </p>
+              </blockquote>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <h4 class="text-white font-weight-bold">Fasilitas Hotel :</h4>
+            </div>
+          </div>
+          <div class="row bg-success bg-gradient">
+            <div class="col-md-6">
+              <p>
+                <ul class="text-white">
+                  <li class="list-item">
+                    Akses lounge eksekutif
+                  </li>
+                  <li class="list-item">
+                    Tempat tidur bayi diperbolehkan
+                  </li>
+                  <li class="list-item">
+                    Fasilitas pembuat kopi dan/atau teh
+                  </li>
+                  <li class="list-item">
+                    Kamar penghubung tersedia
+                  </li>
+                  <li class="list-item">
+                    Meja
+                  </li>
+                </ul>
+              </p>
+            </div>
+            <div class="col-md-6">
+              <p>
+                <ul class="text-white">        
+                  <li class="list-item">
+                    Tempat tidur tambahan diperbolehkan
+                  </li>
+                  <li class="list-item">
+                    Minibar
+                  </li>
+                  <li class="list-item">
+                    Brankas
+                  </li>
+                  <li class="list-item">
+                    Bak berendam
+                  </li>
+                  <li class="list-item">
+                    Kamar tidur terpisah
+                  </li>
+                </ul>
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-5 pt-4">
+              <button type="button" class="btn btn-outline-warning btn-lg" data-bs-toggle="modal" data-bs-target="#myModal">Pesan Sekarang</button>
+            </div>
+            <div class="col-md-7 pt-3">
+              <h5 class="text-white font-weight-bold">Rp 15.376.300,00 / Malam</h5>
+              <p class="text-white font-weight-bold">*Belum termasuk pajak, Fee, dan lainnya</p>
+            </div>
+          </div>                               
+        </div>
+      </div>
+
+      <div class="row btn-hover" id="cabang"><!--Row 11--> <!--Cabang-->
+        <div class="col-md-12 bg-gradient">
+          <h1 class="text-white pt-2 py-1 text-center">Cabang</h1>
+        </div>
+      </div>
+
+      <div class="row pt-5 p-5 pb-5  bg-dark">
+        <div class="col-md-4 ">
+          <div class="card">
+						<img class="card-img-top" alt="Bootstrap Thumbnail First" src="img/c1.png" />
+						<div class="card-block">
+							<h5 class="card-title">
+								Susilo Hotel
+							</h5>
+							<p class="card-text">
+								Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+							</p>
+							<p>
+								<a class="btn btn-success" href="#">Selengkapnya</a>
+							</p>
+						</div>
+					</div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+						<img class="card-img-top" alt="Bootstrap Thumbnail First" src="img/c1.png" />
+						<div class="card-block">
+							<h5 class="card-title">
+								Susilo Hotel
+							</h5>
+							<p class="card-text">
+								Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+							</p>
+							<p>
+								<a class="btn btn-success" href="#">Selengkapnya</a>
+							</p>
+						</div>
+					</div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+						<img class="card-img-top" alt="Bootstrap Thumbnail First" src="img/c1.png" />
+						<div class="card-block">
+							<h5 class="card-title">
+								Susilo Hotel
+							</h5>
+							<p class="card-text">
+								Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+							</p>
+							<p>
+								<a class="btn btn-success" href="#">Selengkapnya</a>
+							</p>
+						</div>
+					</div>
+        </div>
+      </div>
+      
+      <div class="row btn-hover" id="hardis"><!--Row 12--> <!--Harga Diskon-->
+        <div class="col-md-12 bg-gradient">
+          <h1 class="text-white pt-2 py-1 text-center">Hardis (Harga Diskon)</h1>
+        </div>
+      </div>
+    
+      <div class="row pt-5 pb-5 bg-dark">
+        <div class="col-md-12">
+          <table class="table table-bordered table-hover text-center">
+            <thead>
+              <tr>
+                <th class="text-center">No</th>
+                <th class="text-center">Produk</th>
+                <th class="text-center">Waktu</th>
+                <th class="text-center">Diskon</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="table-info">
+                <td>1</td>
+                <td>Presidential Suite</td>
+                <td>01 Januari 2025 - 05 Januari 2025</td>
+                <td>30% (Terbatas)</td>
+              </tr>
+              <tr class="table-active">
+                <td>2</td>
+                <td>Deluxe Room</td>
+                <td>07 Januari 2025 - 9 Januari 2025</td>
+                <td>35% (Terbatas)</td>
+              </tr>
+              <tr class="table-success">
+                <td>3</td>
+                <td>Family Room</td>
+                <td>11 Januari 2025 - 17 Januari 2025</td>
+                <td>25% (Terbatas)</td>
+              </tr>
+              <tr class="table-warning">
+                <td>4</td>
+                <td>Cabana Room</td>
+                <td>12 Januari 2025 - 15 Januari 2025</td>
+                <td>35% (Terbatas)</td>
+              </tr>
+              <tr class="table-danger">
+                <td>5</td>
+                <td>Standard Room</td>
+                <td>14 Januari 2025 - 15 Januari 2025</td>
+                <td>45% (Terbatas)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+      <div class="row btn-hover bg-gradient" id="dukungan"><!--Row 13--> <!--Harga Diskon-->
+        <div class="col-md-12">
+          <h1 class="text-white pt-2 py-1 text-center">Mitra Dukungan</h1>
+        </div>
+      </div>
+
+      <div class="row py-5 bg-dark">
+          <main
+            class="vw-100 vh-50 d-flex flex-row justify-content-center align-items-center"
+          >
+            <div
+              class="logos overflow-hidden py-2 position-relative"
+              style="background-color: #fff; white-space: nowrap"
+            >
+              <div class="logos-slide d-inline-block">
+                <img
+                  src="https://user-images.githubusercontent.com/78242022/284359520-3a125798-774e-423b-b738-5f5e495d276d.png"
+                  alt=""
+                /><!--Etsy-->
+
+                <img
+                  src="https://user-images.githubusercontent.com/78242022/284359525-2779538f-35e0-4727-89fa-04e523624630.png"
+                  alt=""
+                /><!--Airbnb-->
+
+                <img
+                  src="https://user-images.githubusercontent.com/78242022/284359530-00ed0fa5-9752-46df-bc07-4ab5dfe3dded.png"
+                  alt=""
+                /><!--amazon-->
+
+                <img
+                  src="https://user-images.githubusercontent.com/78242022/284359550-db8cbcba-e2ed-48e1-81dc-c396c35893eb.png"
+                  alt=""
+                /><!--Target-->
+
+                <img
+                  src="https://user-images.githubusercontent.com/78242022/284359532-4f2a2b1b-8eb7-4aaa-bda9-7d31df0d5cff.png"
+                  alt=""
+                /><!--Netflix-->
+
+                <img
+                  src="https://user-images.githubusercontent.com/78242022/284359536-909db7c6-660e-495d-9568-c63bdf1fab5d.png"
+                  alt=""
+                /><!--Nasa-->
+
+                <img
+                  src="https://user-images.githubusercontent.com/78242022/284359540-ba6f0359-617b-4e69-9b02-5137a6063738.png"
+                  alt=""
+                /><!--Shopify-->
+
+                <img
+                  src="https://user-images.githubusercontent.com/78242022/284359552-631b683f-859c-44e5-991f-23ff98110083.png"
+                  alt=""
+                /><!--Uber-->
+
+                <img
+                  src="https://user-images.githubusercontent.com/78242022/284359544-ccf33abb-f245-4c29-8f79-997e3eb206ee.png"
+                  alt=""
+                /><!--Slack-->
+
+                <img
+                  src="https://user-images.githubusercontent.com/78242022/284363043-89f1bbc4-b919-4231-8b62-679785a2f20c.png"
+                  alt=""
+                /><!--Google-->
+
+                <img
+                  src="https://user-images.githubusercontent.com/78242022/284359560-9b7336a9-0dff-41c0-8f94-0a3ef06b679d.png"
+                  alt=""
+                /><!--Walmark-->
+              </div>
+            </div>
+          </main>
+      </div>
+
+      <div class="row">
+        <!-- The Modal -->
+        <div class="modal fade" id="myModal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+
+              <!-- Modal Header -->
+              <div class="modal-header">
+                <h4 class="modal-title">Form Pemesanan</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+              </div>
+
+              <!-- Modal body -->
+              <div class="modal-body">
+                <form role="form">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1"> Nama</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="exampleInputEmail1"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1"> Alamat </label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="exampleInputPassword1"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1"> Kontak </label>
+                    <input
+                      type="tel"
+                      class="form-control"
+                      id="exampleInputPassword1"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1"> Tanggal Check In </label>
+                    <input
+                      type="date"
+                      class="form-control"
+                      id="exampleInputPassword1"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1"> Tanggal Check Out </label>
+                    <input
+                      type="date"
+                      class="form-control"
+                      id="exampleInputPassword1"
+                    />
+                  </div>
+                  <div class="checkbox">
+                    <label> <input type="checkbox" /> Saya telah menyetujui persyaratan dan ketentuan berlaku </label>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Pesan</button>
+                </form>
+              </div>
+
+              <!-- Modal footer -->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
